@@ -8,11 +8,13 @@ app = Flask(__name__)
 api_key = 'fa6bb918d26a48d9954143058180502'
 client = ApixuClient(api_key)
 
-###########################
 # current weather
-
 @app.route('/')
 def index(current=None):
+	# geolocalisation
+	def geolocalisation():
+		print('coucou')
+	geolocalisation()
 	current = client.getCurrentWeather(q='Paris')
 	return render_template('index.html', current=current)
 
@@ -25,5 +27,5 @@ def search(current=None):
 	return render_template('index.html', current=current)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=8000)
 

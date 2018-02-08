@@ -1,0 +1,36 @@
+<!doctype html>
+<title>Weather-app</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<div class="pure-g">
+	<div class="pure-u-1-5"><h1>App Weather</h1></div>
+</div>
+<div class="pure-g">
+	<div class="pure-u-1-3"><p></p></div>
+	<div class="pure-u-1-3">
+		<form class="pure-form" action="/search" method="POST">
+		    <fieldset>
+		        <legend>Enter you city</legend>
+		        <input type="city" name="city" placeholder="city">
+
+		        <button type="submit" class="pure-button pure-button-primary">Check</button>
+		    </fieldset>
+		</form>
+	</div>
+	<div class="pure-u-1-3"><p></p></div>
+</div>
+{% if current %}
+<div class="pure-g">
+	<div class="pure-u-1-3"><p></p></div>
+	<div class="pure-u-1-3">
+		<h2>Weather on {{ current.location.name }}, {{ current.location.country }}</h2>
+		<p>last update on {{ current.current.last_updated }}</p>
+		<p><strong>{{ current.current.temp_c }} °C</strong> - {{ current.current.condition.text }}</p>
+		<p>humidity: {{ current.current.humidity }}</p>
+		<p>precipitation: {{ current.current.precip_mm }}</p>
+		<p>cloud: {{ current.current.cloud }}</p>
+	</div>
+	<div class="pure-u-1-3"><p></p></div>
+</div>
+{% else %}
+<h1>Hello you</h1>
+{% endif %}

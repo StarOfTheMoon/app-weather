@@ -1,0 +1,2 @@
+Flask
+-e git://github.com/apixu/apixu-python.git#egg=apixu

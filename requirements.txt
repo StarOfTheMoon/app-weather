@@ -1,2 +1,2 @@
 Flask
--e git+https://github.com/apixu/apixu-python.git#egg=apixu
+requests
